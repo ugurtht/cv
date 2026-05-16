@@ -17,41 +17,63 @@
     }
 
     :root {
-      --dark: #0d1117;
-      --dark2: #161b22;
-      --dark3: #21262d;
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --item-bg: #21262d;
       --border: #30363d;
       --gold: #f0a500;
-      --gold2: #e09000;
+      --gold-bg: rgba(240, 165, 0, .15);
       --text: #e6edf3;
+      --text-bold: #ffffff;
       --muted: #8b949e;
       --accent: #58a6ff;
+      --hero-grad: linear-gradient(135deg, #0d1117 0%, #1a2332 50%, #0d1117 100%);
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    body.light-mode {
+      --bg: #f0f2f5;
+      --card-bg: #ffffff;
+      --item-bg: #f8f9fa;
+      --border: #d0d7de;
+      --gold: #9a6700;
+      --gold-bg: rgba(154, 103, 0, 0.1);
+      --text: #24292f;
+      --text-bold: #1f2328;
+      --muted: #57606a;
+      --accent: #0969da;
+      --hero-grad: linear-gradient(135deg, #ffffff 0%, #f6f8fa 50%, #ffffff 100%);
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: #0d1117;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
+      transition: background 0.3s, color 0.3s;
     }
 
     /* ── WRAPPER ── */
     .cv {
       max-width: 900px;
       margin: 0 auto;
-      background: var(--dark2);
+      background: var(--card-bg);
       min-height: 100vh;
+      box-shadow: var(--shadow);
+      transition: background 0.3s;
     }
 
     /* ── HEADER ── */
     .hero {
-      background: linear-gradient(135deg, #0d1117 0%, #1a2332 50%, #0d1117 100%);
+      background: var(--hero-grad);
       padding: 44px 48px 36px;
       position: relative;
       overflow: hidden;
       border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
     }
 
     .hero::before {
@@ -91,7 +113,7 @@
       font-size: 32px;
       font-weight: 800;
       letter-spacing: -0.5px;
-      color: #fff;
+      color: var(--text-bold);
       line-height: 1.15;
     }
 
@@ -103,7 +125,7 @@
     }
 
     .role-badge {
-      background: rgba(240, 165, 0, .15);
+      background: var(--gold-bg);
       color: var(--gold);
       border: 1px solid rgba(240, 165, 0, .3);
       border-radius: 20px;
@@ -179,10 +201,10 @@
     /* ── SUMMARY ── */
     .summary {
       font-size: 13px;
-      color: #c9d1d9;
+      color: var(--text);
       line-height: 1.75;
       text-align: justify;
-      background: rgba(255, 255, 255, .03);
+      background: var(--item-bg);
       border-left: 3px solid var(--gold);
       padding: 14px 18px;
       border-radius: 0 8px 8px 0;
@@ -190,16 +212,16 @@
 
     /* ── PROJECTS ── */
     .project-card {
-      background: var(--dark3);
+      background: var(--item-bg);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 16px 18px;
       margin-bottom: 14px;
-      transition: border-color .2s;
+      transition: border-color .2s, background 0.3s;
     }
 
     .project-card:hover {
-      border-color: rgba(240, 165, 0, .4);
+      border-color: var(--gold);
     }
 
     .pc-header {
@@ -213,7 +235,7 @@
     .pc-title {
       font-size: 13.5px;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-bold);
     }
 
     .pc-title a {
@@ -254,7 +276,7 @@
     }
 
     .pc-desc li strong {
-      color: #c9d1d9;
+      color: var(--text-bold);
     }
 
     .tech-tags {
@@ -303,8 +325,8 @@
       height: 11px;
       border-radius: 50%;
       background: var(--gold);
-      border: 2px solid var(--dark2);
-      box-shadow: 0 0 0 3px rgba(240, 165, 0, .25);
+      border: 2px solid var(--card-bg);
+      box-shadow: 0 0 0 3px var(--gold-bg);
     }
 
     .tl-header {
@@ -319,7 +341,7 @@
     .tl-title {
       font-size: 13px;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-bold);
     }
 
     .tl-date {
@@ -361,13 +383,14 @@
     }
 
     .stag {
-      background: var(--dark3);
+      background: var(--item-bg);
       border: 1px solid var(--border);
       color: var(--text);
       border-radius: 6px;
       padding: 4px 10px;
       font-size: 11.5px;
       font-weight: 500;
+      transition: background 0.3s;
     }
 
     .stag.gold {
@@ -381,16 +404,17 @@
     .cert-item {
       margin-bottom: 16px;
       padding: 12px 14px;
-      background: var(--dark3);
+      background: var(--item-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
+      transition: background 0.3s;
     }
 
     .edu-item h4,
     .cert-item h4 {
       font-size: 12.5px;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-bold);
       margin-bottom: 3px;
     }
 
@@ -402,11 +426,12 @@
 
     /* ── SIDE: PERSONAL INFO ── */
     .info-card {
-      background: var(--dark3);
+      background: var(--item-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
       margin-bottom: 20px;
+      transition: background 0.3s;
     }
 
     .info-row {
@@ -433,7 +458,7 @@
 
     .info-val {
       font-size: 12px;
-      color: #c9d1d9;
+      color: var(--text);
       font-weight: 500;
     }
 
@@ -445,33 +470,75 @@
       margin-top: 2px;
     }
 
+    /* ── CONTROLS ── */
+    .controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .btn-control {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: all 0.2s;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-control:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .btn-control.pdf {
+      background: var(--gold);
+      color: #fff;
+      border-color: var(--gold);
+    }
+
     /* ── PRINT ── */
     @media print {
       body {
-        background: #fff;
-        color: #000;
+        background: #fff !important;
+        color: #000 !important;
+      }
+
+      .controls {
+        display: none !important;
       }
 
       .cv {
-        background: #fff;
-        box-shadow: none;
+        background: #fff !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
       }
 
       .hero {
-        background: #0d1117 !important;
-      }
-
-      .col-main,
-      .col-side {
-        padding: 24px;
+        background: var(--hero-grad) !important;
+        border-bottom: 1px solid #eee !important;
       }
 
       .project-card,
       .edu-item,
       .cert-item,
       .info-card {
-        background: #f8f9fa !important;
-        border-color: #dee2e6 !important;
+        background: #fcfcfc !important;
+        border-color: #eee !important;
+      }
+
+      .stag {
+        border-color: #eee !important;
       }
 
       @page {
@@ -483,6 +550,15 @@
 </head>
 
 <body>
+  <div class="controls">
+    <button class="btn-control theme-toggle" onclick="toggleTheme()" title="Tema Değiştir">
+      <span id="theme-icon">🌙</span>
+    </button>
+    <button class="btn-control pdf" onclick="downloadPDF()" title="PDF Olarak İndir">
+      <span>📥</span>
+    </button>
+  </div>
+
   <div class="cv">
 
     <!-- HERO HEADER -->
@@ -804,6 +880,39 @@
     </div><!-- /body-grid -->
 
   </div><!-- /cv -->
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+      
+      if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        icon.innerText = '🌙';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.add('light-mode');
+        icon.innerText = '☀️';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    function downloadPDF() {
+      window.print();
+    }
+
+    // Sayfa yüklendiğinde temayı kontrol et
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+      
+      if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        if (icon) icon.innerText = '☀️';
+      }
+    });
+  </script>
 </body>
+
 
 </html>
