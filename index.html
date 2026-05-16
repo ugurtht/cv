@@ -512,6 +512,88 @@
       text-decoration: none;
     }
 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+      }
+
+      .photo-wrap img {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+      }
+
+      .hero-text h1 {
+        font-size: 28px;
+      }
+
+      .role {
+        justify-content: center;
+      }
+
+      .contact-row {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .body-grid {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .col-main {
+        display: contents;
+      }
+
+      .sec-summary {
+        order: 1;
+        padding: 30px 20px 10px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .col-side {
+        order: 2;
+        padding: 20px 20px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .sec-projects {
+        order: 3;
+        padding: 30px 20px 10px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .sec-experience {
+        order: 4;
+        padding: 30px 20px;
+      }
+
+      /* Desktop border reset */
+      .col-main {
+        border-right: none;
+      }
+
+      .controls {
+        top: 10px;
+        right: 10px;
+        gap: 8px;
+      }
+
+      .btn-control {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+      }
+
+      .btn-control.pdf {
+        padding: 0 12px;
+        font-size: 11px;
+      }
+    }
+
     /* ── PRINT ── */
     @media print {
       body {
@@ -595,7 +677,7 @@
       <main class="col-main">
 
         <!-- ÖZET -->
-        <section class="section">
+        <section class="section sec-summary">
           <div class="sec-title">Profesyonel Özet</div>
           <p class="summary">
             Kariyerime gazete tasarımı ve görsel iletişimin her aşamasında (Grafik Tasarım, prodüksiyon,
@@ -608,7 +690,7 @@
         </section>
 
         <!-- PROJELER -->
-        <section class="section">
+        <section class="section sec-projects">
           <div class="sec-title">Öne Çıkan Projeler</div>
 
           <div class="project-card">
@@ -696,7 +778,7 @@
         </section>
 
         <!-- DENEYİM -->
-        <section class="section">
+        <section class="section sec-experience">
           <div class="sec-title">İş Deneyimleri</div>
           <div class="timeline">
 
