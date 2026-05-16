@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uğur Tahta – CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --dark: #0d1117;
+      --dark2: #161b22;
+      --dark3: #21262d;
+      --border: #30363d;
+      --gold: #f0a500;
+      --gold2: #e09000;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #0d1117;
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── WRAPPER ── */
+    .cv {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--dark2);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    .hero {
+      background: linear-gradient(135deg, #0d1117 0%, #1a2332 50%, #0d1117 100%);
+      padding: 44px 48px 36px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(240, 165, 0, .12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .photo-wrap {
+      flex-shrink: 0;
+    }
+
+    .photo-wrap img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 0 6px rgba(240, 165, 0, .15);
+      display: block;
+    }
+
+    .hero-text h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
+      line-height: 1.15;
+    }
+
+    .hero-text .role {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .role-badge {
+      background: rgba(240, 165, 0, .15);
+      color: var(--gold);
+      border: 1px solid rgba(240, 165, 0, .3);
+      border-radius: 20px;
+      padding: 3px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .3px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .contact-item span.ico {
+      font-size: 14px;
+    }
+
+    .contact-item a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    /* ── BODY GRID ── */
+    .body-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+    }
+
+    .col-main {
+      padding: 36px 40px;
+      border-right: 1px solid var(--border);
+    }
+
+    .col-side {
+      padding: 36px 28px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .sec-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sec-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(240, 165, 0, .4), transparent);
+    }
+
+    .section {
+      margin-bottom: 36px;
+    }
+
+    /* ── SUMMARY ── */
+    .summary {
+      font-size: 13px;
+      color: #c9d1d9;
+      line-height: 1.75;
+      text-align: justify;
+      background: rgba(255, 255, 255, .03);
+      border-left: 3px solid var(--gold);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* ── PROJECTS ── */
+    .project-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      transition: border-color .2s;
+    }
+
+    .project-card:hover {
+      border-color: rgba(240, 165, 0, .4);
+    }
+
+    .pc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .pc-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .pc-title a {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 500;
+      text-decoration: none;
+      margin-left: 6px;
+    }
+
+    .pc-date {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+      white-space: nowrap;
+      background: rgba(240, 165, 0, .1);
+      border: 1px solid rgba(240, 165, 0, .2);
+      padding: 2px 10px;
+      border-radius: 20px;
+      flex-shrink: 0;
+    }
+
+    .pc-desc {
+      font-size: 12.5px;
+      color: #8b949e;
+      margin-bottom: 8px;
+    }
+
+    .pc-desc ul {
+      padding-left: 16px;
+      margin-top: 4px;
+    }
+
+    .pc-desc li {
+      font-size: 12px;
+      color: #8b949e;
+      margin-bottom: 3px;
+    }
+
+    .pc-desc li strong {
+      color: #c9d1d9;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      background: rgba(88, 166, 255, .1);
+      color: var(--accent);
+      border: 1px solid rgba(88, 166, 255, .2);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+
+    /* ── EXPERIENCE TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 6px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, var(--gold), transparent);
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    .tl-dot {
+      position: absolute;
+      left: -20px;
+      top: 4px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--dark2);
+      box-shadow: 0 0 0 3px rgba(240, 165, 0, .25);
+    }
+
+    .tl-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+
+    .tl-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .tl-date {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .tl-company {
+      font-size: 11.5px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .tl-desc {
+      font-size: 12px;
+      color: #8b949e;
+      line-height: 1.6;
+    }
+
+    /* ── SIDE: SKILLS ── */
+    .skill-block {
+      margin-bottom: 20px;
+    }
+
+    .skill-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 8px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .stag {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 11.5px;
+      font-weight: 500;
+    }
+
+    .stag.gold {
+      background: rgba(240, 165, 0, .1);
+      border-color: rgba(240, 165, 0, .25);
+      color: var(--gold);
+    }
+
+    /* ── SIDE: EDU + CERT ── */
+    .edu-item,
+    .cert-item {
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .edu-item h4,
+    .cert-item h4 {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .edu-item p,
+    .cert-item p {
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+
+    /* ── SIDE: PERSONAL INFO ── */
+    .info-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-key {
+      font-size: 10.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      min-width: 70px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    .info-val {
+      font-size: 12px;
+      color: #c9d1d9;
+      font-weight: 500;
+    }
+
+    .info-val small {
+      display: block;
+      font-size: 10.5px;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+      }
+
+      .cv {
+        background: #fff;
+        box-shadow: none;
+      }
+
+      .hero {
+        background: #0d1117 !important;
+      }
+
+      .col-main,
+      .col-side {
+        padding: 24px;
+      }
+
+      .project-card,
+      .edu-item,
+      .cert-item,
+      .info-card {
+        background: #f8f9fa !important;
+        border-color: #dee2e6 !important;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cv">
+
+    <!-- HERO HEADER -->
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="photo-wrap">
+          <img src="foto.jpg" alt="Uğur Tahta">
+        </div>
+        <div class="hero-text">
+          <h1>Uğur Tahta</h1>
+          <div class="role">
+            <span class="role-badge">İş Akışı Geliştirme Uzmanı</span>
+            <span class="role-badge">Full-Stack Geliştirici</span>
+            <span class="role-badge">Dijital Pazarlama Uzmanı</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-item"><span class="ico">📞</span>+90 (506) 688 69 31</span>
+            <span class="contact-item"><span class="ico">✉️</span>tahtaugur@gmail.com</span>
+            <span class="contact-item"><span class="ico">📍</span>İzmir, Karşıyaka</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="body-grid">
+
+      <!-- MAIN COLUMN -->
+      <main class="col-main">
+
+        <!-- ÖZET -->
+        <section class="section">
+          <div class="sec-title">Profesyonel Özet</div>
+          <p class="summary">
+            Kariyerime gazete tasarımı ve görsel iletişimin her aşamasında (Grafik Tasarım, prodüksiyon,
+            post-prodüksiyon) derinlemesine deneyim kazanarak başladım. Dijital dönüşümle birlikte odağımı veri odaklı
+            reklamcılık (Google & Meta Ads) ve yazılım geliştirmeye çevirerek, teknik becerilerimi stratejik
+            verimlilikle birleştirdim. Son 5 yıldır, sağlık turizmi sektöründe 'operasyonel mükemmeliyet' odaklı şirket
+            içi kurumsal yazılımlar ve mimariler geliştirmekteyim. Amacım; karmaşık iş süreçlerini kullanıcı dostu
+            arayüzlerle basitleştirmek ve hata payını minimize eden yüksek verimli iş akışları kurgulamaktır.
+          </p>
+        </section>
+
+        <!-- PROJELER -->
+        <section class="section">
+          <div class="sec-title">Öne Çıkan Projeler</div>
+
+          <div class="project-card">
+            <div class="pc-header">
+              <span class="pc-title">Yapay Zeka Ajanları ile Yönetilen Servis CRM'i</span>
+              <span class="pc-date">Bireysel Proje 2026</span>
+            </div>
+            <p class="pc-desc">Küçük işletmeler ve teknik servisler için geliştirilmekte olan, yapay zeka ajan
+              entegrasyonlarına sahip ve iş süreçlerini otomatize eden yenilikçi bir CRM yazılımı. (Mülakat esnasında
+              sunumu yapılabilir).</p>
+            <div class="tech-tags">
+              <span class="tag">Laravel</span>
+              <span class="tag">CRM</span>
+              <span class="tag">AI Agents</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="pc-header">
+              <span class="pc-title">FotoChest – Fotoğraf Depolama ve Etkinlik Platformu <a
+                  href="https://fotochest.com/tr" target="_blank">[fotochest.com/tr]</a></span>
+              <span class="pc-date">Bireysel Proje 2025</span>
+            </div>
+            <p class="pc-desc">Organizasyonlarda konukların QR kod okutarak fotoğraf yüklemesini ve paylaşmasını
+              sağlayan SaaS tabanlı web aplikasyonu.</p>
+            <div class="tech-tags">
+              <span class="tag">Laravel</span>
+              <span class="tag">Wasabi S3</span>
+              <span class="tag">SaaS</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="pc-header">
+              <span class="pc-title">Kurumsal Şirket İçi İletişim ve Personel Yönetimi Yazılımı (ERP/CRM)</span>
+              <span class="pc-date">Medicalfly 2021</span>
+            </div>
+            <div class="pc-desc">
+              <p>Sağlık turizmi firmasının tüm operasyonel süreçleri merkezi hale getirmek ve manuel iş yükünü minimize
+                etmek amacıyla, değişen ihtiyaçlar doğrultusunda sıfırdan geliştirdiğim uçtan uca kurumsal yönetim
+                sistemi.</p>
+              <ul>
+
+                <li>Şirket içi personel yönetimi; İzinler, harcamalar, fazla mesailer, şirket envanteri yönetimi.</li>
+                <li>Transfer takibi (hasta transferi için alış-varış ve duraklar ve saatlerinin organizasyonu)</li>
+                <li>Hasta konaklama takvimi ve rezarvasyon yönetimi.</li>
+                <li>Partner doktor iletişimi</li>
+                <li>Partner doktorlar ile paylaşımlı hasta crm'i (hastanın tüm süreçlerini yöneten, hasta foto ve
+                  videolarını, doktor yazışmalarını, hasta bilgi ve anketlerini, tedavi planlarını, yönetip saklar)</li>
+                <li>Tüm Operasyon fiyatlarının hesaplanması</li>
+                <li>Yurt dışı etkinlik planlanması ve yönetimi ve katılımcı crm'i</li>
+                <li>Şirket belgeleri arşivi ve yetkili personel ile paylaşımı.</li>
+                <li>Operasyon sonrası hasta arşivi ve dosya paylaşım izinleri yönetimi.</li>
+                <li>Şirket içi sosyal platform, post paylaşımı, şirket güncellemeleri feed'i</li>
+                <li>Tüm pazarlama ve satış istatistikleri tabloları</li>
+              </ul>
+            </div>
+            <div class="tech-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">MySQL</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="pc-header">
+              <span class="pc-title">Araç Belge ve İşlem Takip Yazılımı</span>
+              <span class="pc-date">Özşanal 2020</span>
+            </div>
+            <p class="pc-desc">Şirket araç filosunun kasko, sigorta, periyodik bakım süreçlerini takip eden; yaklaşan
+              tarihlerde otomatik uyarı mekanizmaları tetikleyen ve birim bazlı özel izleme panelleri sunan yazılım.</p>
+            <div class="tech-tags"><span class="tag">PHP</span></div>
+          </div>
+
+          <div class="project-card">
+            <div class="pc-header">
+              <span class="pc-title">Messenger Entegre Müşteri Destek & Satış Operasyon Sistemi</span>
+              <span class="pc-date">Özşanal 2018</span>
+            </div>
+            <p class="pc-desc">Meta (Messenger) reklamlarından gelen potansiyel müşterileri, çağrı merkezi çalışanları
+              aracılığıyla fiziksel mağazalardaki satış personeline anlık olarak aktaran ve tüm sürecin performans
+              raporlarını izleyen köprü yazılım.</p>
+            <div class="tech-tags"><span class="tag">PHP</span><span class="tag">Meta Graph API</span></div>
+          </div>
+        </section>
+
+        <!-- DENEYİM -->
+        <section class="section">
+          <div class="sec-title">İş Deneyimleri</div>
+          <div class="timeline">
+
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-header">
+                <span class="tl-title">Full-Stack Geliştirici & Dijital Pazarlama Uzmanı</span>
+                <span class="tl-date">Nisan 2021 – Haziran 2026</span>
+              </div>
+              <div class="tl-company">Medical Fly Sağlık Turizm Ltd. Şti.</div>
+              <p class="tl-desc">Sağlık turizmi dikeyinde faaliyet gösteren kurumsal firmanın tüm dijital altyapısını
+                kurma; şirket içi ERP, CRM ve lojistik optimizasyon yazılımlarının sıfırdan kurgulanması, kodlanması ve
+                sürdürülebilirliğinin sağlanması.
+                <br>
+                Digital reklam faliyetlerinin yürütülmesi, reklam bütçelerinin optimizasyonu. Performans
+                pazarlaması odağında hedef kitle testleri, reklam setleri yönetimi (Google Ads, Meta Ads).
+                Şirketin wordpress sitelerinin bakım ve güncellemeleri.
+              </p>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-header">
+                <span class="tl-title">Dijital Pazarlama ve Sosyal Medya Uzmanı</span>
+                <span class="tl-date">Ocak 2019 – Nisan 2021</span>
+              </div>
+              <div class="tl-company">Özşanal Züccaciye</div>
+              <p class="tl-desc">Büyük ölçekli mağazacılık yapısında dijital reklam bütçelerinin kontrolü ve
+                optimizasyonu. Performans pazarlaması odağında hedef kitle testleri, reklam setleri yönetimi, ROAS
+                analitiği ve kreatif süreçlerin uçtan uca yönetimi.</p>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-header">
+                <span class="tl-title">Dijital Pazarlama Uzmanı</span>
+                <span class="tl-date">Ocak 2018 – Aralık 2018</span>
+              </div>
+              <div class="tl-company">Bay Şerif E-Ticaret</div>
+              <p class="tl-desc">Google Ads kampanya kurulumları, anahtar kelime planlaması, Merchant Center feed
+                yönetimi, Facebook Ads optimizasyonları ve sipariş/kampanya süreçlerinin yürütülmesi.</p>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-header">
+                <span class="tl-title">Dijital Pazarlama ve E-Ticaret Uzmanı</span>
+                <span class="tl-date">Haziran 2016 – Ocak 2018</span>
+              </div>
+              <div class="tl-company">Özşanal</div>
+              <p class="tl-desc">E-ticaret paneli üzerinden ürün/stok yönetimi, Facebook reklam setleri optimizasyonları
+                ve web sitesindeki tüm teknik entegrasyon süreçlerinin takibi.</p>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-header">
+                <span class="tl-title">Grafik Tasarım Uzmanı / Dizgi Sorumlusu</span>
+                <span class="tl-date">2012 – 2014</span>
+              </div>
+              <div class="tl-company">Haberler.com & Sakarya Gazetesi</div>
+              <p class="tl-desc">Dijital grafik ve arayüz materyalleri üretimi; yerel gazete bünyesinde mizanpaj, sayfa
+                tasarımı ve baskı öncesi hazırlık süreçlerinin yönetimi.</p>
+            </div>
+
+          </div>
+        </section>
+      </main>
+
+      <!-- SIDE COLUMN -->
+      <aside class="col-side">
+
+        <!-- KİŞİSEL BİLGİLER -->
+        <section class="section">
+          <div class="sec-title">Kişisel Bilgiler</div>
+          <div class="info-card">
+            <div class="info-row">
+              <span class="info-key">Doğum</span>
+              <span class="info-val">1989 <small>(37 Yaş)</small></span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Vatandaşlık</span>
+              <span class="info-val">T.C.</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Askerlik</span>
+              <span class="info-val">Yapıldı</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Sağlık</span>
+              <span class="info-val">%40 Engelli Raporu <small>İç Hast., Endok. ve Meta. Hast.<br>İstihdam teşvikine
+                  uygundur.</small></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- TEKNİK YETKİNLİKLER -->
+        <section class="section">
+          <div class="sec-title">Teknik Yetkinlikler</div>
+
+          <div class="skill-block">
+            <div class="skill-label">Backend / DB</div>
+            <div class="skill-tags">
+              <span class="stag gold">PHP</span>
+              <span class="stag gold">Laravel</span>
+              <span class="stag gold">MySQL</span>
+              <span class="stag gold">REST API</span>
+              <span class="stag gold">Wasabi S3</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-label">Frontend</div>
+            <div class="skill-tags">
+              <span class="stag">HTML</span>
+              <span class="stag">CSS</span>
+              <span class="stag">WordPress</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-label">Dijital Pazarlama</div>
+            <div class="skill-tags">
+              <span class="stag">Google Ads</span>
+              <span class="stag">Meta Ads</span>
+              <span class="stag">GA4</span>
+              <span class="stag">SEO</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-label">Tasarım & Prodüksiyon</div>
+            <div class="skill-tags">
+              <span class="stag">Photoshop</span>
+              <span class="stag">Illustrator</span>
+              <span class="stag">InDesign</span>
+              <span class="stag">After Effects</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-label">Yapay Zeka</div>
+            <div class="skill-tags">
+              <span class="stag">N8N</span>
+              <span class="stag">Agents</span>
+              <span class="stag">AI Otomasyon</span>
+              <span class="stag">AI Studio</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- EĞİTİM -->
+        <section class="section">
+          <div class="sec-title">Eğitim</div>
+          <div class="edu-item">
+            <h4>Anadolu Üniversitesi</h4>
+            <p>Basın ve Yayın (İngilizce)</p>
+            <p>Lisans &nbsp;·&nbsp; GNO: 3.50 / 4.00</p>
+            <p>2007 – 2013</p>
+          </div>
+          <div class="edu-item">
+            <h4>Söke Hilmi Fırat Anadolu Lisesi</h4>
+            <p>Sosyal Bilimler</p>
+            <p>Mezuniyet: 2007</p>
+          </div>
+        </section>
+
+        <!-- SERTİFİKALAR -->
+        <section class="section">
+          <div class="sec-title">Sertifikalar</div>
+          <div class="cert-item">
+            <h4>Dijital Pazarlama Temelleri</h4>
+            <p>BTK Akademi &nbsp;·&nbsp; 2020</p>
+          </div>
+          <div class="cert-item">
+            <h4>Proje Yönetimi</h4>
+            <p>BTK Akademi &nbsp;·&nbsp; 2020</p>
+          </div>
+          <div class="cert-item">
+            <h4>Online Pazarlama</h4>
+            <p>Google Dijital Atölye &nbsp;·&nbsp; 2017</p>
+          </div>
+        </section>
+
+      </aside>
+    </div><!-- /body-grid -->
+
+  </div><!-- /cv -->
+</body>
+
+</html>
